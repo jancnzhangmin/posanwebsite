@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907005443) do
+ActiveRecord::Schema.define(version: 20170907014829) do
 
   create_table "newspapers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20170907005443) do
     t.string   "newspaperimage_content_type"
     t.integer  "newspaperimage_file_size"
     t.datetime "newspaperimage_updated_at"
+  end
+
+  create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "content",    limit: 65535
+    t.integer  "top"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
