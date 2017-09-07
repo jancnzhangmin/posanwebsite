@@ -1,0 +1,44 @@
+
+<div class="col-md-12 ibox ibox-content">
+  <div class="ibox-content form-horizontal m-t">
+    <div class="form-group">
+      <%= form_for(@newspaper,:html => {:class=>'form-horizontal m-t',:multipart => true}) do |f| %>
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label">图片：</label>
+            <div class="col-sm-5">
+              <%= f.file_field :newspaperimage,class:"form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">标题：</label>
+            <div class="col-sm-5">
+              <%= f.text_field :title,class:"form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">内容：</label>
+            <div class="col-sm-5">
+              <%= f.kindeditor :content,class:"form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">置顶：</label>
+            <div class="col-sm-5">
+              <%= f.number_field :top,class:"form-control" %>
+            </div>
+          </div>
+
+
+
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label"></label>
+            <div class="col-sm-5 text-right">
+              <%= f.submit '确定',class: "btn btn-w-m btn-primary ",id:'smt' %>&nbsp;<%= link_to "返回",newspapers_path,class: "btn btn-w-m btn-primary " %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
