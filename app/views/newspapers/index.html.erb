@@ -9,6 +9,7 @@
           <th class="text-center">新闻图片</th>
           <th class="text-center">标题</th>
           <th class="text-center">创建时间</th>
+<td class="text-center">置顶</td>
           <th class="text-center">操作</th>
         </tr>
         </thead>
@@ -21,7 +22,18 @@
               </td>
               <td><%= newspaper.title %></td>
               <td><%= newspaper.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+              <td>
 
+                <%if newspaper.top == 1%>
+                  置顶
+
+                  <% else %>
+
+                    &nbsp;
+
+                  <%end%>
+
+              <td>
               <td><%= link_to '编辑',edit_newspaper_path(newspaper) %>
 
 

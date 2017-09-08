@@ -1,3 +1,24 @@
+<script>
+    $(document).ready(function(){
+        if($('#topinput').val()=="1"){
+            $('#topcheckbox').attr('checked',true);
+        }else{
+            $('#topcheckbox').attr('checked',false);
+        }
+
+        $('#topcheckbox').click(function(){
+            if($(this).prop("checked")){
+                $('#topinput').val("1");
+            }else{
+                $('#topinput').val("0");
+            }
+
+        });
+
+    });
+</script>
+
+
 <div class="col-md-12 ibox ibox-content">
   <div class="ibox-content form-horizontal m-t">
     <div class="form-group">
@@ -18,9 +39,11 @@
           <div class="form-group">
             <label class="col-sm-3 control-label">置顶：</label>
             <div class="col-sm-5">
-              <%= f.number_field :top,class:"form-control" %>
+              <%= f.hidden_field :top,class:"form-control" ,id:'topinput'%>
+
             </div>
           </div>
+          <input type="checkbox" id="topcheckbox"></input>
 
 
 
