@@ -7,6 +7,9 @@
     <tr>
       <th class="text-center">标题</th>
       <th class="text-center">创建时间</th>
+      <th class="text-center"></th>
+
+
       <th class="text-center">操作</th>
     </tr>
     </thead>
@@ -16,8 +19,20 @@
 
           <td><%= notice.title %></td>
           <td><%= notice.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+          <td>
+
+            <% if notice.top == 1 %>
+            置顶
+                <% else %>
+            &nbsp;
+                <% end %>
+
+
+          </td>
 
           <td><%= link_to '编辑',edit_notice_path(notice) %>
+
+
 
             <%= link_to '删除', notice, method: :delete, data: { confirm: '确认删除?' } %>
 

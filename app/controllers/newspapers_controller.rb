@@ -2,7 +2,7 @@ class NewspapersController < ApplicationController
 
   before_action :set_newspaper, only: [:show, :edit, :update, :destroy]
   def index
-    @newspapers=Newspaper.all
+    @newspapers=Newspaper.all.order("top desc")
   end
 
   def edit
@@ -26,7 +26,17 @@ class NewspapersController < ApplicationController
   end
 
   def update
+
     respond_to do |format|
+
+      if newspaper_params[:top]==1
+        @newspaper=Notice.find_by_top(1)
+        if @newspaper
+          @newspaper.top=0
+          @newspaper.save
+        end
+      end
+
       if @newspaper.update(newspaper_params)
         format.html { redirect_to newspapers_path, notice: 'Dgt was successfully updated.' }
         format.json { render :show, status: :ok, location: @newspaper }

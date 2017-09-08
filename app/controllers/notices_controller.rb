@@ -2,7 +2,7 @@ class NoticesController < ApplicationController
 
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
   def index
-    @notices=Notice.all
+    @notices=Notice.all.order("top desc")
   end
 
   def edit
@@ -27,6 +27,19 @@ class NoticesController < ApplicationController
 
   def update
     respond_to do |format|
+
+      #debugger
+    if notice_params[:top]=="1"
+      notice =Notice.find_by_top(1)
+
+      if notice
+         notice.top=0
+         notice.save
+      end
+    end
+
+
+
       if @notice.update(notice_params)
         format.html { redirect_to notices_path, notice: 'Dgt was successfully updated.' }
         format.json { render :show, status: :ok, location: @notice }
