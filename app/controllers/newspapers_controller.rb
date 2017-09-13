@@ -30,7 +30,7 @@ class NewspapersController < ApplicationController
     respond_to do |format|
 
       if newspaper_params[:top]==1
-        @newspaper=Notice.find_by_top(1)
+        @newspaper=Newspaper.find_by_top(1)
         if @newspaper
           @newspaper.top=0
           @newspaper.save

@@ -1,0 +1,35 @@
+
+    <div class="ibox-title">
+      <h3>商品</h3>
+    </div>
+    <div class="ibox-content">
+      <table class="table table-hover table-bordered text-center">
+        <thead>
+        <tr>
+          <th class="text-center">商品名</th>
+
+
+          <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @products.each do |pro| %>
+            <tr>
+
+              <td><%= pro.ware %></td>
+
+
+              <td><%= link_to '编辑',edit_product_path(pro) %>
+
+
+
+                <%= link_to '删除', pro, method: :delete, data: { confirm: '确认删除?' } %>
+
+                    </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= link_to "新增",new_product_path,class: "btn btn-w-m btn-primary pull-right" %>
+      <br>
+    </div>

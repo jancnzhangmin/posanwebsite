@@ -1,0 +1,37 @@
+
+    <div class="ibox-title">
+      <h3>商品信息</h3>
+    </div>
+    <div class="ibox-content">
+      <table class="table table-hover table-bordered text-center">
+        <thead>
+        <tr>
+          <th class="text-center">名称</th>
+          <th class="text-center">分类</th>
+          <th class="text-center">规格</th>
+          <th class="text-center">价格</th>
+          <th class="text-center">描述</th>
+          <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @myproducts.each do |product| %>
+            <tr>
+
+              <td><%= product.name %></td>
+              <td>
+              <%= product.mycla.cla %>
+              </td>
+              <td><%= product.spec %></td>
+              <td><%= product.price %></td>
+              <td><%= product.content %></td>
+              <td><%= link_to '编辑',edit_myproduct_path(product) %>
+                  <%= link_to '删除', product, method: :delete, data: { confirm: '确认删除?' } %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= link_to "新增",new_myproduct_path,class: "btn btn-w-m btn-primary pull-right" %>
+      <br>
+    </div>

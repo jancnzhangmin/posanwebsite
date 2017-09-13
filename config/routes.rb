@@ -3,4 +3,19 @@ Rails.application.routes.draw do
   resources :newspapers
 
   resources :notices
+
+
+
+  resources :myclas
+
+  resources :products
+
+  resources :myproducts
+
+resources :apis do
+  collection do
+    get 'returntest'
+  end
 end
+
+  end

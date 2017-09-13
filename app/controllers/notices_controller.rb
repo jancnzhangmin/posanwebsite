@@ -30,14 +30,14 @@ class NoticesController < ApplicationController
 
       #debugger
     if notice_params[:top]=="1"
-      notice =Notice.find_by_top(1)
+      @notice =Notice.find_by_top(1)
+      if @notice
+         @notice.top=0
+         @notice.save
 
-      if notice
-         notice.top=0
-         notice.save
+
       end
     end
-
 
 
       if @notice.update(notice_params)
